@@ -301,36 +301,6 @@
 #endif
 
 /*
- * +farsi		Farsi (Persian language) Keymap support.
- *			Requires FEAT_RIGHTLEFT.
- *
- * Disabled for EBCDIC as it requires multibyte.
- */
-#if defined(FEAT_BIG) && !defined(EBCDIC)
-# define FEAT_FKMAP
-#endif
-#ifdef FEAT_FKMAP
-# ifndef FEAT_RIGHTLEFT
-#   define FEAT_RIGHTLEFT
-# endif
-#endif
-
-/*
- * +arabic		Arabic keymap and shaping support.
- *			Requires FEAT_RIGHTLEFT and FEAT_MBYTE.
- *
- * Disabled for EBCDIC as it requires multibyte.
- */
-#if defined(FEAT_BIG) && !defined(WIN16) && VIM_SIZEOF_INT >= 4 && !defined(EBCDIC)
-# define FEAT_ARABIC
-#endif
-#ifdef FEAT_ARABIC
-# ifndef FEAT_RIGHTLEFT
-#   define FEAT_RIGHTLEFT
-# endif
-#endif
-
-/*
  * +emacs_tags		When FEAT_EMACS_TAGS defined: Include support for
  *			emacs style TAGS file.
  */
@@ -823,11 +793,6 @@
 # endif
 #endif
 
-/* Mac specific thing: Codewarrior interface. */
-#ifdef FEAT_GUI_MAC
-# define FEAT_CW_EDITOR
-#endif
-
 /*
  * Preferences:
  * ============
@@ -948,9 +913,9 @@
  * FTPLUGOF_FILE	switch off loading settings files
  * INDOFF_FILE		switch off loading indent files
  */
-/* # define FILETYPE_FILE	"filetype.vim" */
-/* # define FTPLUGIN_FILE	"ftplugin.vim" */
-/* # define INDENT_FILE		"indent.vim" */
+# define FILETYPE_FILE	"filetype.vim"
+# define FTPLUGIN_FILE	"ftplugin.vim"
+# define INDENT_FILE		"indent.vim"
 /* # define FTOFF_FILE		"ftoff.vim" */
 /* # define FTPLUGOF_FILE	"ftplugof.vim" */
 /* # define INDOFF_FILE		"indoff.vim" */
